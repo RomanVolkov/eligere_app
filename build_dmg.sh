@@ -1,6 +1,6 @@
 #!/bin/bash
 APP_NAME="Eligere"
-PROJECT_DIR="/Users/romanvolkov/dev/personal/eligere_app"
+PROJECT_DIR="$(pwd)"
 PROJECT_NAME="EligereApp"
 SCHEME_NAME="Eligere"
 BACKGROUND_SCHEME_NAME="Eligere Agent"
