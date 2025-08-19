@@ -1,0 +1,37 @@
+name: Build and Release
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+jobs:
+  build:
+    runs-on: macos-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Set up Xcode
+      run: sudo xcode-select -s /Applications/Xcode.app/Contents/Developer
+
+    - name: Build DMG
+      env:
+        APPLE_ID: ${{ secrets.APPLE_ID }}
+        APP_PASSWORD: ${{ secrets.APP_PASSWORD }}
+        DEVELOPER_ID: ${{ secrets.DEVELOPER_ID }}
+      run: ./build_dmg.sh
+
+    - name: Get DMG Version
+      id: get_version
+      run: |
+        DMG_NAME=$(ls output/Eligere_*_Installer_compressed.dmg)
+        echo "DMG_NAME=${DMG_NAME}" >> $GITHUB_ENV
+
+    - name: Create Release
+      uses: softprops/action-gh-release@v1
+      with:
+        files: ${{ env.DMG_NAME }}
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
