@@ -1,0 +1,616 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		5E00A2B12DE5FA35003EA262 /* Eligere Agent.app in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5E00A2962DE5ED1A003EA262 /* Eligere Agent.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		5E1B77322DE9CF27001137B6 /* TOMLKit in Frameworks */ = {isa = PBXBuildFile; productRef = 5E1B77312DE9CF27001137B6 /* TOMLKit */; };
+		5E67059B2D8F4A4300CFD984 /* Puppy in Frameworks */ = {isa = PBXBuildFile; productRef = 5E67059A2D8F4A4300CFD984 /* Puppy */; };
+		E0C5632E836D0090DA30A60F /* AppUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1838386879FCF48332C6737 /* AppUtils.swift */; };
+		ED30AB9F247B0CFC0B519796 /* TOMLDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB9F0A5EAD33AC7F3A79BF0B /* TOMLDecoder.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		5E00A2AF2DE5F9F1003EA262 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5E33F87E2D46931E00805BE8 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5E00A2952DE5ED1A003EA262;
+			remoteInfo = "Eligere Agent";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		5E00A2AC2DE5F4A8003EA262 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = Contents/Library/LoginItems;
+			dstSubfolderSpec = 1;
+			files = (
+				5E00A2B12DE5FA35003EA262 /* Eligere Agent.app in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		2461FEBF86EAC6C456413A7B /* TOMLDecoderTests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TOMLDecoderTests.swift; sourceTree = "<group>"; };
+		5E00A2962DE5ED1A003EA262 /* Eligere Agent.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Eligere Agent.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		5E33F8862D46931E00805BE8 /* Eligere.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Eligere.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C1838386879FCF48332C6737 /* AppUtils.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AppUtils.swift; sourceTree = "<group>"; };
+		FB9F0A5EAD33AC7F3A79BF0B /* TOMLDecoder.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TOMLDecoder.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		5E00A2B22DE5FC2A003EA262 /* Exceptions for "Eligere Agent" folder in "Eligere Agent" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				EligereAgent.plist,
+			);
+			target = 5E00A2952DE5ED1A003EA262 /* Eligere Agent */;
+		};
+		5ED217F12D46947F00042D10 /* Exceptions for "EligereApp" folder in "Eligere" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				"Eligere-Info.plist",
+			);
+			target = 5E33F8852D46931E00805BE8 /* Eligere */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		5E00A2972DE5ED1A003EA262 /* Eligere Agent */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				5E00A2B22DE5FC2A003EA262 /* Exceptions for "Eligere Agent" folder in "Eligere Agent" target */,
+			);
+			path = "Eligere Agent";
+			sourceTree = "<group>";
+		};
+		5E8F27AE2D46936100C6BC36 /* EligereApp */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				5ED217F12D46947F00042D10 /* Exceptions for "EligereApp" folder in "Eligere" target */,
+			);
+			path = EligereApp;
+			sourceTree = "<group>";
+		};
+/* End PBXFileSystemSynchronizedRootGroup section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		5E00A2932DE5ED1A003EA262 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5E33F8832D46931E00805BE8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5E1B77322DE9CF27001137B6 /* TOMLKit in Frameworks */,
+				5E67059B2D8F4A4300CFD984 /* Puppy in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		2EF499202BA667F1C9CB1025 /* Configs */ = {
+			isa = PBXGroup;
+			children = (
+				FB9F0A5EAD33AC7F3A79BF0B /* TOMLDecoder.swift */,
+			);
+			path = Configs;
+			sourceTree = "<group>";
+		};
+		3A0C6784B0A769D4973C0210 /* EligereApp */ = {
+			isa = PBXGroup;
+			children = (
+				2EF499202BA667F1C9CB1025 /* Configs */,
+				557F0CD1F3764E5F4513EF20 /* Utils */,
+			);
+			path = EligereApp;
+			sourceTree = "<group>";
+		};
+		557F0CD1F3764E5F4513EF20 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				C1838386879FCF48332C6737 /* AppUtils.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		5E33F87D2D46931E00805BE8 = {
+			isa = PBXGroup;
+			children = (
+				5E8F27AE2D46936100C6BC36 /* EligereApp */,
+				5E00A2972DE5ED1A003EA262 /* Eligere Agent */,
+				5E33F8872D46931E00805BE8 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		5E33F8872D46931E00805BE8 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				5E33F8862D46931E00805BE8 /* Eligere.app */,
+				5E00A2962DE5ED1A003EA262 /* Eligere Agent.app */,
+				3A0C6784B0A769D4973C0210 /* EligereApp */,
+				66506911F46072C5FC1823F5 /* EligereTests */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		66506911F46072C5FC1823F5 /* EligereTests */ = {
+			isa = PBXGroup;
+			children = (
+				D1729DD645A405BD85DE80F9 /* Config */,
+			);
+			path = EligereTests;
+			sourceTree = "<group>";
+		};
+		D1729DD645A405BD85DE80F9 /* Config */ = {
+			isa = PBXGroup;
+			children = (
+				2461FEBF86EAC6C456413A7B /* TOMLDecoderTests.swift */,
+			);
+			path = Config;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		5E00A2952DE5ED1A003EA262 /* Eligere Agent */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5E00A2A12DE5ED1B003EA262 /* Build configuration list for PBXNativeTarget "Eligere Agent" */;
+			buildPhases = (
+				5E00A2922DE5ED1A003EA262 /* Sources */,
+				5E00A2932DE5ED1A003EA262 /* Frameworks */,
+				5E00A2942DE5ED1A003EA262 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				5E00A2972DE5ED1A003EA262 /* Eligere Agent */,
+			);
+			name = "Eligere Agent";
+			productName = "Eligere Agent";
+			productReference = 5E00A2962DE5ED1A003EA262 /* Eligere Agent.app */;
+			productType = "com.apple.product-type.application";
+		};
+		5E33F8852D46931E00805BE8 /* Eligere */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5E33F8952D46932000805BE8 /* Build configuration list for PBXNativeTarget "Eligere" */;
+			buildPhases = (
+				5E33F8822D46931E00805BE8 /* Sources */,
+				5E33F8832D46931E00805BE8 /* Frameworks */,
+				5E33F8842D46931E00805BE8 /* Resources */,
+				5E00A2AC2DE5F4A8003EA262 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				5E00A2B02DE5F9F1003EA262 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				5E8F27AE2D46936100C6BC36 /* EligereApp */,
+			);
+			name = Eligere;
+			packageProductDependencies = (
+				5E67059A2D8F4A4300CFD984 /* Puppy */,
+				5E1B77312DE9CF27001137B6 /* TOMLKit */,
+			);
+			productName = Eligere;
+			productReference = 5E33F8862D46931E00805BE8 /* Eligere.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		5E33F87E2D46931E00805BE8 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1630;
+				LastUpgradeCheck = 1630;
+				TargetAttributes = {
+					5E00A2952DE5ED1A003EA262 = {
+						CreatedOnToolsVersion = 16.3;
+					};
+					5E33F8852D46931E00805BE8 = {
+						CreatedOnToolsVersion = 16.2;
+					};
+				};
+			};
+			buildConfigurationList = 5E33F8812D46931E00805BE8 /* Build configuration list for PBXProject "EligereApp" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 5E33F87D2D46931E00805BE8;
+			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				5E6705992D8F4A4300CFD984 /* XCRemoteSwiftPackageReference "Puppy" */,
+				5E1B77302DE9CF27001137B6 /* XCRemoteSwiftPackageReference "TOMLKit" */,
+			);
+			preferredProjectObjectVersion = 77;
+			productRefGroup = 5E33F8872D46931E00805BE8 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				5E33F8852D46931E00805BE8 /* Eligere */,
+				5E00A2952DE5ED1A003EA262 /* Eligere Agent */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		5E00A2942DE5ED1A003EA262 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5E33F8842D46931E00805BE8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		5E00A2922DE5ED1A003EA262 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5E33F8822D46931E00805BE8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ED30AB9F247B0CFC0B519796 /* TOMLDecoder.swift in Sources */,
+				E0C5632E836D0090DA30A60F /* AppUtils.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		5E00A2B02DE5F9F1003EA262 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5E00A2952DE5ED1A003EA262 /* Eligere Agent */;
+			targetProxy = 5E00A2AF2DE5F9F1003EA262 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		5E00A29F2DE5ED1B003EA262 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "Eligere Agent/Eligere_Agent.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 31;
+				DEVELOPMENT_TEAM = QAW83JAP7C;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = "Eligere Agent/EligereAgent.plist";
+				INFOPLIST_KEY_LSBackgroundOnly = YES;
+				INFOPLIST_KEY_LSUIElement = YES;
+				INFOPLIST_KEY_NSAppleEventsUsageDescription = "This service tracks the active application to route URLs to the correct browser.";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 15.4;
+				MARKETING_VERSION = 2.0.0;
+				PRODUCT_BUNDLE_IDENTIFIER = dev.eligere.agent;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				REGISTER_APP_GROUPS = YES;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		5E00A2A02DE5ED1B003EA262 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "Eligere Agent/Eligere_Agent.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 31;
+				DEVELOPMENT_TEAM = QAW83JAP7C;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = "Eligere Agent/EligereAgent.plist";
+				INFOPLIST_KEY_LSBackgroundOnly = YES;
+				INFOPLIST_KEY_LSUIElement = YES;
+				INFOPLIST_KEY_NSAppleEventsUsageDescription = "This service tracks the active application to route URLs to the correct browser.";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 15.4;
+				MARKETING_VERSION = 2.0.0;
+				PRODUCT_BUNDLE_IDENTIFIER = dev.eligere.agent;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				REGISTER_APP_GROUPS = YES;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		5E33F8932D46932000805BE8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = QAW83JAP7C;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 15.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		5E33F8942D46932000805BE8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = QAW83JAP7C;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 15.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+			};
+			name = Release;
+		};
+		5E33F8962D46932000805BE8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = EligereApp/EligereApp.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 31;
+				DEAD_CODE_STRIPPING = YES;
+				DEVELOPMENT_ASSET_PATHS = "\"EligereApp/Preview Content\"";
+				DEVELOPMENT_TEAM = QAW83JAP7C;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "EligereApp/Eligere-Info.plist";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 15.0;
+				MARKETING_VERSION = 2.0.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "dev.eligere.eligere-app";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				REGISTER_APP_GROUPS = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		5E33F8972D46932000805BE8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = EligereApp/EligereApp.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 31;
+				DEAD_CODE_STRIPPING = YES;
+				DEVELOPMENT_ASSET_PATHS = "\"EligereApp/Preview Content\"";
+				DEVELOPMENT_TEAM = QAW83JAP7C;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "EligereApp/Eligere-Info.plist";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 15.0;
+				MARKETING_VERSION = 2.0.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "dev.eligere.eligere-app";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				REGISTER_APP_GROUPS = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		5E00A2A12DE5ED1B003EA262 /* Build configuration list for PBXNativeTarget "Eligere Agent" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5E00A29F2DE5ED1B003EA262 /* Debug */,
+				5E00A2A02DE5ED1B003EA262 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5E33F8812D46931E00805BE8 /* Build configuration list for PBXProject "EligereApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5E33F8932D46932000805BE8 /* Debug */,
+				5E33F8942D46932000805BE8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5E33F8952D46932000805BE8 /* Build configuration list for PBXNativeTarget "Eligere" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5E33F8962D46932000805BE8 /* Debug */,
+				5E33F8972D46932000805BE8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		5E1B77302DE9CF27001137B6 /* XCRemoteSwiftPackageReference "TOMLKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/LebJe/TOMLKit";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.6.0;
+			};
+		};
+		5E6705992D8F4A4300CFD984 /* XCRemoteSwiftPackageReference "Puppy" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/sushichop/Puppy";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.7.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		5E1B77312DE9CF27001137B6 /* TOMLKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5E1B77302DE9CF27001137B6 /* XCRemoteSwiftPackageReference "TOMLKit" */;
+			productName = TOMLKit;
+		};
+		5E67059A2D8F4A4300CFD984 /* Puppy */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5E6705992D8F4A4300CFD984 /* XCRemoteSwiftPackageReference "Puppy" */;
+			productName = Puppy;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = 5E33F87E2D46931E00805BE8 /* Project object */;
+}
