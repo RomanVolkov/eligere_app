@@ -16,3 +16,4 @@ status_info.json
 submission_info.json
 .aider*
 output/
+certs/

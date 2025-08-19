@@ -1,17 +1,19 @@
 #!/bin/bash
 APP_NAME="Eligere"
-PROJECT_DIR="/Users/romanvolkov/dev/personal/eligere_app"
+PROJECT_DIR="$(pwd)"
 PROJECT_NAME="EligereApp"
 SCHEME_NAME="Eligere"
 BACKGROUND_SCHEME_NAME="Eligere Agent"
 CONFIGURATION="Release"
 BUILD_DIR="${PROJECT_DIR}/build"
-OUTPUT_DIR="output"
+OUTPUT_DIR="$HOME/output"
 DEVELOPER_ID="${DEVELOPER_ID}"
 APPLE_ID="${APPLE_ID}"
 APP_PASSWORD="${APP_PASSWORD}"
 
 rm -rf "${BUILD_DIR}"
+mkdir -p ${BUILD_DIR}
+mkdir -p ${OUTPUT_DIR}
 
 # Clean both targets
 echo "Cleaning main app..."
@@ -71,8 +73,8 @@ DMG_NAME="${APP_NAME}_${MARKETING_VERSION}_${BUILD_NUMBER}_Installer.dmg"
 COMPRESSED_DMG_NAME="${APP_NAME}_${MARKETING_VERSION}_${BUILD_NUMBER}_Installer_compressed.dmg"
 
 MOUNT_POINT=$(mktemp -d)
-hdiutil create -fs HFS+ -size 200m -volname "${APP_NAME}" "${OUTPUT_DIR}/${DMG_NAME}"
-hdiutil attach "${OUTPUT_DIR}/${DMG_NAME}" -mountpoint "${MOUNT_POINT}"
+hdiutil create -verbose -fs HFS+ -size 200m -volname "${APP_NAME}" "${OUTPUT_DIR}/${DMG_NAME}"
+hdiutil attach -verbose "${OUTPUT_DIR}/${DMG_NAME}" -mountpoint "${MOUNT_POINT}"
 cp -R "${BUILD_DIR}/${APP_NAME}.app" "${MOUNT_POINT}/"
 ln -s /Applications "${MOUNT_POINT}/Applications"
 hdiutil detach "${MOUNT_POINT}"
