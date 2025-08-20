@@ -30,26 +30,26 @@ jobs:
         security unlock-keychain -p "" build.keychain
         security set-key-partition-list -S apple-tool:,apple: -s -k "" build.keychain
 
-    # - name: Decode and Install Provisioning Profile for App
-    #   env:
-    #     PROVISIONING_PROFILE: ${{ secrets.PROVISIONING_PROFILE_APP }}
-    #   run: |
-    #     echo "$PROVISIONING_PROFILE" | base64 --decode > profile.mobileprovision
-    #     mkdir -p "/Users/runner/Library/MobileDevice/Provisioning\ Profiles"
-    #     UUID=$(grep UUID -A1 -a profile.mobileprovision | grep -io "[-A-F0-9]\{36\}")
-    #     mv profile.mobileprovision "/Users/runner/Library/MobileDevice/Provisioning\ Profiles/$UUID.mobileprovision"
-    #     security cms -D -i "/Users/runner/Library/MobileDevice/Provisioning\ Profiles/$UUID.mobileprovision"
-    #
-    #
-    # - name: Decode and Install Provisioning Profile for Agent
-    #   env:
-    #     PROVISIONING_PROFILE: ${{ secrets.PROVISIONING_PROFILE_AGENT }}
-    #   run: |
-    #     echo "$PROVISIONING_PROFILE" | base64 --decode > profile.mobileprovision
-    #     mkdir -p "/Users/runner/Library/MobileDevice/Provisioning\ Profiles"
-    #     UUID=$(grep UUID -A1 -a profile.mobileprovision | grep -io "[-A-F0-9]\{36\}")
-    #     mv profile.mobileprovision "/Users/runner/Library/MobileDevice/Provisioning\ Profiles/$UUID.mobileprovision"
-    #     security cms -D -i "/Users/runner/Library/MobileDevice/Provisioning\ Profiles/$UUID.mobileprovision"
+    - name: Decode and Install Provisioning Profile for App
+      env:
+        PROVISIONING_PROFILE: ${{ secrets.PROVISIONING_PROFILE_APP }}
+      run: |
+        echo "$PROVISIONING_PROFILE" | base64 --decode > profile.mobileprovision
+        mkdir -p "/Users/runner/Library/MobileDevice/Provisioning\ Profiles"
+        UUID=$(grep UUID -A1 -a profile.mobileprovision | grep -io "[-A-F0-9]\{36\}")
+        mv profile.mobileprovision "/Users/runner/Library/MobileDevice/Provisioning\ Profiles/$UUID.mobileprovision"
+        security cms -D -i "/Users/runner/Library/MobileDevice/Provisioning\ Profiles/$UUID.mobileprovision"
+
+
+    - name: Decode and Install Provisioning Profile for Agent
+      env:
+        PROVISIONING_PROFILE: ${{ secrets.PROVISIONING_PROFILE_AGENT }}
+      run: |
+        echo "$PROVISIONING_PROFILE" | base64 --decode > profile.mobileprovision
+        mkdir -p "/Users/runner/Library/MobileDevice/Provisioning\ Profiles"
+        UUID=$(grep UUID -A1 -a profile.mobileprovision | grep -io "[-A-F0-9]\{36\}")
+        mv profile.mobileprovision "/Users/runner/Library/MobileDevice/Provisioning\ Profiles/$UUID.mobileprovision"
+        security cms -D -i "/Users/runner/Library/MobileDevice/Provisioning\ Profiles/$UUID.mobileprovision"
 
     - name: Build DMG
       env:
