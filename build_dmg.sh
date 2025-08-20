@@ -71,12 +71,12 @@ DMG_NAME="${APP_NAME}_${MARKETING_VERSION}_${BUILD_NUMBER}_Installer.dmg"
 COMPRESSED_DMG_NAME="${APP_NAME}_${MARKETING_VERSION}_${BUILD_NUMBER}_Installer_compressed.dmg"
 
 MOUNT_POINT=$(mktemp -d)
-hdiutil create -verbose -debug -fs HFS+ -size 200m -volname "${APP_NAME}" "${OUTPUT_DIR}/${DMG_NAME}"
-hdiutil attach -verbose -debug "${OUTPUT_DIR}/${DMG_NAME}" -mountpoint "${MOUNT_POINT}"
+hdiutil create -verbose -fs HFS+ -size 200m -volname "${APP_NAME}" "${OUTPUT_DIR}/${DMG_NAME}"
+hdiutil attach -verbose "${OUTPUT_DIR}/${DMG_NAME}" -mountpoint "${MOUNT_POINT}"
 cp -R "${BUILD_DIR}/${APP_NAME}.app" "${MOUNT_POINT}/"
 ln -s /Applications "${MOUNT_POINT}/Applications"
-hdiutil -verbose -debug detach "${MOUNT_POINT}"
-hdiutil -verbose -debug convert "${OUTPUT_DIR}/${DMG_NAME}" -format UDZO -o "${OUTPUT_DIR}/${COMPRESSED_DMG_NAME}"
+hdiutil detach "${MOUNT_POINT}"
+hdiutil convert "${OUTPUT_DIR}/${DMG_NAME}" -format UDZO -o "${OUTPUT_DIR}/${COMPRESSED_DMG_NAME}"
 
 rm -rf "${BUILD_DIR}/${APP_NAME}.xcarchive"
 rm -rf "${MOUNT_POINT}"
