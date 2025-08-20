@@ -52,7 +52,7 @@ jobs:
         security cms -D -i "/Users/runner/Library/Developer/Xcode/UserData/Provisioning\ Profiles/$UUID.provisionprofile"
 
     - name: LS
-      run: ls "/Users/runner/Library/Developer/Xcode/UserData/Provisioning\ Profile"
+      run: ls "/Users/runner/Library/Developer/Xcode/UserData/Provisioning Profile"
 
     - name: Build DMG
       env:
