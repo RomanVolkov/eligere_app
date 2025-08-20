@@ -31,10 +31,10 @@ jobs:
         security set-key-partition-list -S apple-tool:,apple: -s -k "" build.keychain
 
     - name: Create Provisioning Profiles Directory
-      run: mkdir -p $HOME/Library/MobileDevice/Provisioning Profiles
+      run: mkdir -p "$HOME/Library/MobileDevice/Provisioning Profiles/"
 
     - name: Verify Folder is created
-      run: ls -l $HOME/Library/MobileDevice/Provisioning Profiles/
+      run: ls -l "$HOME/Library/MobileDevice/Provisioning Profiles/"
       shell: bash
 
     - name: Decode and Install Provisioning Profile for App
