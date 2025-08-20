@@ -40,6 +40,9 @@ jobs:
         UUID=$(grep UUID -A1 -a profile.mobileprovision | grep -io "[-A-F0-9]\{36\}")
         mv profile.mobileprovision "~/Library/MobileDevice/Provisioning\ Profiles/$UUID.mobileprovision"
 
+    - name: LS PP
+      run: ls "~/Library/MobileDevice/Provisioning\ Profiles"
+
 
     - name: Decode and Install Provisioning Profile for Agent
       env:
