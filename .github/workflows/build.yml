@@ -35,10 +35,10 @@ jobs:
         PROVISIONING_PROFILE: ${{ secrets.PROVISIONING_PROFILE_APP }}
       run: |
         echo "$PROVISIONING_PROFILE" | base64 --decode > profile.provisionprofile
-        mkdir -p "~/Library/Developer/Xcode/UserData/Provisioning\ Profiles"
+        mkdir -p "~/Library/MobileDevice/Provisioning\ Profiles/"
         UUID="6ba99512-72be-4ed6-8d20-3c234ee5fe63"
-        mv profile.provisionprofile "~/Library/Developer/Xcode/UserData/Provisioning\ Profiles/$UUID.provisionprofile"
-        security cms -D -i "~/Library/Developer/Xcode/UserData/Provisioning\ Profiles/$UUID.provisionprofile"
+        mv profile.provisionprofile "~/Library/MobileDevice/Provisioning\ Profiles/$UUID.provisionprofile"
+        security cms -D -i "~/Library/MobileDevice/Provisioning\ Profiles/$UUID.provisionprofile"
 
 
     - name: Decode and Install Provisioning Profile for Agent
@@ -46,16 +46,17 @@ jobs:
         PROVISIONING_PROFILE: ${{ secrets.PROVISIONING_PROFILE_AGENT }}
       run: |
         echo "$PROVISIONING_PROFILE" | base64 --decode > profile.provisionprofile
-        mkdir -p "~/Library/Developer/Xcode/UserData/Provisioning\ Profiles"
+        mkdir -p "~/Library/MobileDevice/Provisioning\ Profiles/"
         UUID="dcc41a66-e891-44cd-be3f-bdd62a8bdeb7"
-        mv profile.provisionprofile "~/Library/Developer/Xcode/UserData/Provisioning\ Profiles/$UUID.provisionprofile"
-        security cms -D -i "~/Library/Developer/Xcode/UserData/Provisioning\ Profiles/$UUID.provisionprofile"
+        mv profile.provisionprofile "~/Library/MobileDevice/Provisioning\ Profiles/$UUID.provisionprofile"
+        security cms -D -i "~/Library/MobileDevice/Provisioning\ Profiles/$UUID.provisionprofile"
 
     - name: LS
       run: ls "~/Library/Developer/Xcode/UserData/Provisioning\ Profiles"
 
-    - name: List Provisioning Profiles
-      run: ls -la ~/Library/Developer/Xcode/UserData/Provisioning\ Profiles
+    - name: Verify Installed Profiles
+      run: ls -l ~/Library/MobileDevice/Provisioning\ Profiles/
+      shell: bash
 
     - name: Build DMG
       env:
