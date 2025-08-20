@@ -51,6 +51,9 @@ jobs:
         mv profile.provisionprofile "/Users/runner/Library/Developer/Xcode/UserData/Provisioning\ Profiles/$UUID.provisionprofile"
         security cms -D -i "/Users/runner/Library/Developer/Xcode/UserData/Provisioning\ Profiles/$UUID.provisionprofile"
 
+    - name: LS
+      run: ls "/Users/runner/Library/Developer/Xcode/UserData/Provisioning\ Profile"
+
     - name: Build DMG
       env:
         APPLE_ID: ${{ secrets.APPLE_ID }}
