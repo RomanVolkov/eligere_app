@@ -43,6 +43,7 @@ jobs:
       run: |
         echo "$PROVISIONING_PROFILE" | base64 --decode > profile.provisionprofile
         UUID="6ba99512-72be-4ed6-8d20-3c234ee5fe63"
+        file profile.provisionprofile
         mv profile.provisionprofile "~/Library/MobileDevice/Provisioning\ Profiles/$UUID.provisionprofile"
         security cms -D -i "~/Library/MobileDevice/Provisioning\ Profiles/$UUID.provisionprofile"
 
