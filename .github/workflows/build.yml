@@ -40,9 +40,6 @@ jobs:
         UUID=$(grep UUID -A1 -a profile.mobileprovision | grep -io "[-A-F0-9]\{36\}")
         mv profile.mobileprovision "~/Library/MobileDevice/Provisioning\ Profiles/$UUID.mobileprovision"
 
-    - name: LS PP
-      run: ls "~/Library/MobileDevice/Provisioning\ Profiles"
-
 
     - name: Decode and Install Provisioning Profile for Agent
       env:
@@ -52,6 +49,10 @@ jobs:
         mkdir -p "~/Library/MobileDevice/Provisioning\ Profiles"
         UUID=$(grep UUID -A1 -a profile.mobileprovision | grep -io "[-A-F0-9]\{36\}")
         mv profile.mobileprovision "~/Library/MobileDevice/Provisioning\ Profiles/$UUID.mobileprovision"
+
+    - name: LS PP
+      run: |
+        for file in "~/Library/MobileDevice/Provisioning\ Profiles"; do [ -f "$file" ] && security cms -D -i "$file"; done
 
     - name: Build DMG
       env:
