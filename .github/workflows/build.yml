@@ -54,6 +54,9 @@ jobs:
     - name: LS
       run: ls "~/Library/Developer/Xcode/UserData/Provisioning\ Profiles"
 
+    - name: List Provisioning Profiles
+      run: ls -la ~/Library/Developer/Xcode/UserData/Provisioning\ Profiles
+
     - name: Build DMG
       env:
         APPLE_ID: ${{ secrets.APPLE_ID }}
