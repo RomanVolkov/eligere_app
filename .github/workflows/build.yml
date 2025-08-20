@@ -33,6 +33,10 @@ jobs:
     - name: Create Provisioning Profiles Directory
       run: mkdir -p ~/Library/MobileDevice/Provisioning\ Profiles
 
+    - name: Verify Folder is created
+      run: ls -l ~/Library/MobileDevice/Provisioning\ Profiles/
+      shell: bash
+
     - name: Decode and Install Provisioning Profile for App
       env:
         PROVISIONING_PROFILE: ${{ secrets.PROVISIONING_PROFILE_APP }}
@@ -51,9 +55,6 @@ jobs:
         UUID="dcc41a66-e891-44cd-be3f-bdd62a8bdeb7"
         mv profile.provisionprofile "~/Library/MobileDevice/Provisioning\ Profiles/$UUID.provisionprofile"
         security cms -D -i "~/Library/MobileDevice/Provisioning\ Profiles/$UUID.provisionprofile"
-
-    - name: LS
-      run: ls "~/Library/Developer/Xcode/UserData/Provisioning\ Profiles"
 
     - name: Verify Installed Profiles
       run: ls -l ~/Library/MobileDevice/Provisioning\ Profiles/
