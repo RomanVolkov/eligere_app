@@ -12,6 +12,8 @@ APPLE_ID="${APPLE_ID}"
 APP_PASSWORD="${APP_PASSWORD}"
 
 rm -rf "${BUILD_DIR}"
+mkdir -p ${BUILD_DIR}
+mkdir -p ${OUTPUT_DIR}
 
 # Clean both targets
 echo "Cleaning main app..."
