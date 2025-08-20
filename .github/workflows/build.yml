@@ -35,10 +35,10 @@ jobs:
         PROVISIONING_PROFILE: ${{ secrets.PROVISIONING_PROFILE_APP }}
       run: |
         echo "$PROVISIONING_PROFILE" | base64 --decode > profile.mobileprovision
-        mkdir -p "/Users/runner/Library/MobileDevice/Provisioning\ Profiles"
+        mkdir -p "/Users/runner/Library/Developer/Xcode/UserData/Provisioning\ Profiles"
         UUID="6ba99512-72be-4ed6-8d20-3c234ee5fe63"
-        mv profile.mobileprovision "/Users/runner/Library/MobileDevice/Provisioning\ Profiles/$UUID.mobileprovision"
-        security cms -D -i "/Users/runner/Library/MobileDevice/Provisioning\ Profiles/$UUID.mobileprovision"
+        mv profile.mobileprovision "/Users/runner/Library/Developer/Xcode/UserData/Provisioning\ Profiles/$UUID.mobileprovision"
+        security cms -D -i "/Users/runner/Library/Developer/Xcode/UserData/Provisioning\ Profiles/$UUID.mobileprovision"
 
 
     - name: Decode and Install Provisioning Profile for Agent
@@ -46,10 +46,10 @@ jobs:
         PROVISIONING_PROFILE: ${{ secrets.PROVISIONING_PROFILE_AGENT }}
       run: |
         echo "$PROVISIONING_PROFILE" | base64 --decode > profile.mobileprovision
-        mkdir -p "/Users/runner/Library/MobileDevice/Provisioning\ Profiles"
+        mkdir -p "/Users/runner/Library/Developer/Xcode/UserData/Provisioning\ Profiles"
         UUID="dcc41a66-e891-44cd-be3f-bdd62a8bdeb7"
-        mv profile.mobileprovision "/Users/runner/Library/MobileDevice/Provisioning\ Profiles/$UUID.mobileprovision"
-        security cms -D -i "/Users/runner/Library/MobileDevice/Provisioning\ Profiles/$UUID.mobileprovision"
+        mv profile.mobileprovision "/Users/runner/Library/Developer/Xcode/UserData/Provisioning\ Profiles/$UUID.mobileprovision"
+        security cms -D -i "/Users/runner/Library/Developer/Xcode/UserData/Provisioning\ Profiles/$UUID.mobileprovision"
 
     - name: Build DMG
       env:
