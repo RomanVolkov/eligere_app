@@ -33,6 +33,7 @@ xcodebuild archive \
     -scheme "${SCHEME_NAME}" \
     -configuration "${CONFIGURATION}" \
     -archivePath "${BUILD_DIR}/${APP_NAME}.xcarchive"
+-allowProvisioningUpdates
 
 echo "${BUILD_DIR}/${APP_NAME}.xcarchive/"
 
@@ -41,6 +42,7 @@ xcodebuild -exportArchive \
     -archivePath "${BUILD_DIR}/${APP_NAME}.xcarchive" \
     -exportOptionsPlist "${PROJECT_DIR}/ExportOptions.plist" \
     -exportPath "${BUILD_DIR}"
+-allowProvisioningUpdates
 
 # exit 0
 APP_PATH="${BUILD_DIR}/${APP_NAME}.app"
