@@ -58,7 +58,7 @@ jobs:
         security cms -D -i "$HOME/Library/MobileDevice/Provisioning Profiles/$UUID.provisionprofile"
 
     - name: Verify Installed Profiles
-      run: ls -l "$HOME/Library/MobileDevice/Provisioning Profiles/"
+      run: ls "$HOME/Library/MobileDevice/Provisioning Profiles/"
       shell: bash
 
     - name: Build DMG
