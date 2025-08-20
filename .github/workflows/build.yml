@@ -36,7 +36,7 @@ jobs:
       run: |
         echo "$PROVISIONING_PROFILE" | base64 --decode > profile.mobileprovision
         mkdir -p "/Users/runner/Library/MobileDevice/Provisioning\ Profiles"
-        UUID=$(grep UUID -A1 -a profile.mobileprovision | grep -io "[-A-F0-9]\{36\}")
+        UUID="6ba99512-72be-4ed6-8d20-3c234ee5fe63"
         mv profile.mobileprovision "/Users/runner/Library/MobileDevice/Provisioning\ Profiles/$UUID.mobileprovision"
         security cms -D -i "/Users/runner/Library/MobileDevice/Provisioning\ Profiles/$UUID.mobileprovision"
 
@@ -47,7 +47,7 @@ jobs:
       run: |
         echo "$PROVISIONING_PROFILE" | base64 --decode > profile.mobileprovision
         mkdir -p "/Users/runner/Library/MobileDevice/Provisioning\ Profiles"
-        UUID=$(grep UUID -A1 -a profile.mobileprovision | grep -io "[-A-F0-9]\{36\}")
+        UUID="dcc41a66-e891-44cd-be3f-bdd62a8bdeb7"
         mv profile.mobileprovision "/Users/runner/Library/MobileDevice/Provisioning\ Profiles/$UUID.mobileprovision"
         security cms -D -i "/Users/runner/Library/MobileDevice/Provisioning\ Profiles/$UUID.mobileprovision"
 
