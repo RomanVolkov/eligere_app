@@ -31,10 +31,10 @@ jobs:
         security set-key-partition-list -S apple-tool:,apple: -s -k "" build.keychain
 
     - name: Create Provisioning Profiles Directory
-      run: mkdir -p ~/Library/MobileDevice/Provisioning\ Profiles
+      run: mkdir -p $HOME/Library/MobileDevice/Provisioning\ Profiles
 
     - name: Verify Folder is created
-      run: ls -l ~/Library/MobileDevice/Provisioning\ Profiles/
+      run: ls -l $HOME/Library/MobileDevice/Provisioning\ Profiles/
       shell: bash
 
     - name: Decode and Install Provisioning Profile for App
@@ -44,8 +44,8 @@ jobs:
         echo "$PROVISIONING_PROFILE" | base64 --decode > profile.provisionprofile
         UUID="6ba99512-72be-4ed6-8d20-3c234ee5fe63"
         file profile.provisionprofile
-        mv profile.provisionprofile "~/Library/MobileDevice/Provisioning\ Profiles/$UUID.provisionprofile"
-        security cms -D -i "~/Library/MobileDevice/Provisioning\ Profiles/$UUID.provisionprofile"
+        mv profile.provisionprofile "$HOME/Library/MobileDevice/Provisioning\ Profiles/$UUID.provisionprofile"
+        security cms -D -i "$HOME/Library/MobileDevice/Provisioning\ Profiles/$UUID.provisionprofile"
 
 
     - name: Decode and Install Provisioning Profile for Agent
@@ -54,11 +54,11 @@ jobs:
       run: |
         echo "$PROVISIONING_PROFILE" | base64 --decode > profile.provisionprofile
         UUID="dcc41a66-e891-44cd-be3f-bdd62a8bdeb7"
-        mv profile.provisionprofile "~/Library/MobileDevice/Provisioning\ Profiles/$UUID.provisionprofile"
-        security cms -D -i "~/Library/MobileDevice/Provisioning\ Profiles/$UUID.provisionprofile"
+        mv profile.provisionprofile "$HOME/Library/MobileDevice/Provisioning\ Profiles/$UUID.provisionprofile"
+        security cms -D -i "$HOME/Library/MobileDevice/Provisioning\ Profiles/$UUID.provisionprofile"
 
     - name: Verify Installed Profiles
-      run: ls -l ~/Library/MobileDevice/Provisioning\ Profiles/
+      run: ls -l $HOME/Library/MobileDevice/Provisioning\ Profiles/
       shell: bash
 
     - name: Build DMG
