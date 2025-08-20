@@ -71,7 +71,7 @@ jobs:
     - name: Get DMG Version
       id: get_version
       run: |
-        DMG_NAME=$(ls output/Eligere_*_Installer_compressed.dmg)
+        DMG_NAME=$(ls $HOME/output/Eligere_*_Installer_compressed.dmg)
         echo "DMG_NAME=${DMG_NAME}" >> $GITHUB_ENV
 
     - name: Create Release
