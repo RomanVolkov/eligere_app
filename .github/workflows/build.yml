@@ -65,6 +65,7 @@ jobs:
       env:
         APPLE_ID: ${{ secrets.APPLE_ID }}
         APP_PASSWORD: ${{ secrets.APP_PASSWORD }}
+        DEVELOPER_ID: ${{ secrets.DEVELOPER_ID }}
       run: ./build_dmg.sh
 
     - name: Get DMG Version
