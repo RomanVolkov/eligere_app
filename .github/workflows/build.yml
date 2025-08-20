@@ -53,7 +53,7 @@ jobs:
     - name: LS PP
       run: |
         ls "~/Library/MobileDevice/Provisioning\ Profiles"
-        for file in "~/Library/MobileDevice/Provisioning\ Profiles"; do [ -f "$file" ] && security cms -D -i "$file"; 
+        for file in "~/Library/MobileDevice/Provisioning\ Profiles/*"; do [ -f "$file" ] && security cms -D -i "$file"; 
         done
 
     - name: Build DMG
