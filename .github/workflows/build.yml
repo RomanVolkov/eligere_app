@@ -46,7 +46,7 @@ jobs:
         PROVISIONING_PROFILE: ${{ secrets.PROVISIONING_PROFILE_APP }}
       run: |
         echo "$PROVISIONING_PROFILE" | base64 --decode > ./profile.provisionprofile
-        UUID=$(grep -A1 '<key>UUID</key>' ./profile.provisionprofile | tail -n1 | sed -E 's/.*<string>(.*)<\/string>.*/\1/')
+        UUID=$(grep -A1 '<key>UUID</key>' ./profile.mobileprovision | tail -n1 | sed -E 's/.*<string>(.*)<\/string>.*/\1/')
         file ./profile.provisionprofile
         mv ./profile.provisionprofile "$HOME/Library/MobileDevice/Provisioning Profiles/$UUID.provisionprofile"
         # security cms -D -i "$HOME/Library/MobileDevice/Provisioning Profiles/$UUID.provisionprofile"
@@ -57,7 +57,7 @@ jobs:
         PROVISIONING_PROFILE: ${{ secrets.PROVISIONING_PROFILE_AGENT }}
       run: |
         echo "$PROVISIONING_PROFILE" | base64 --decode > ./profile.provisionprofile
-        UUID=$(grep -A1 '<key>UUID</key>' ./profile.provisionprofile | tail -n1 | sed -E 's/.*<string>(.*)<\/string>.*/\1/')
+        UUID=$(grep -A1 '<key>UUID</key>' ./profile.mobileprovision | tail -n1 | sed -E 's/.*<string>(.*)<\/string>.*/\1/')
         mv ./profile.provisionprofile "$HOME/Library/MobileDevice/Provisioning Profiles/$UUID.provisionprofile"
         # security cms -D -i "$HOME/Library/MobileDevice/Provisioning Profiles/$UUID.provisionprofile"
 
