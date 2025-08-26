@@ -31,7 +31,7 @@ domains = ["apple.com"]
 
 There are properties defined on the first level and some defined inside `browsers[<index>]` level.
 
-If there is a problem with parsing a configuration - the error will be written inside the log with `error` level. For some information please follow [troubleshooting guide](/docs/troubleshooting/logs)
+If there is a problem with parsing a configuration - the error will be written inside the log with `error` level. For some information please follow [troubleshooting guide](./logs.md)
 
 
 ## <code>useOnlyRunningBrowsers</code>
@@ -95,7 +95,7 @@ This name is used to construct path to the app itself to be used by <code>Eliger
 
 Value represents a character to be used from browser selection UI. Should be 1 symbol. Having 2+ length string won't work. It could be a alphabet character like <code>"shortcut":"a"</code> or <code>"shortcut":"s"</code>; or it could be a number like <code>"shortcut":"1"</code>.
 
-![shortcut example](open_link_example.png)
+![shortcut example](images/open_link_example.png)
 
 By default <code>Eligere</code> generates a <code>shortcut</code> value as first lowercased character from browser name. For <code>Safari</code> it is <code>s</code>, for <code>Google Chrome</code> it is <code>g</code>. But you can change to anything you prefer.
 
@@ -166,7 +166,7 @@ domains = ["localhost"]
 ```
 <code>false</code>
 
-![shown browser example](open_link_example.png)
+![shown browser example](images/open_link_example.png)
 
 <code>true</code>
 

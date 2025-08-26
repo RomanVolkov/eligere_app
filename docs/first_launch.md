@@ -21,4 +21,4 @@ Once <code>Eligere</code> is default one - you won't see bottom banner anymore, 
 
 There is no way to understand that an app is a web browser. Basically, on macOS everything that can handle opening of http(s) links can be a candidate to be a default web browser. First time you launch an application - it will generate first config using default values and placing all apps that can handle http(s) links.
 
-You can read more about the config [here](/docs/config/info/)
+You can read more about the config [here](./config.md)
