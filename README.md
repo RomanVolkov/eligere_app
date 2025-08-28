@@ -4,6 +4,8 @@
 
 a Lightweight, **easy-to-use** and **easy-to-configure** macOS app. Eligere routes every link to the right browser via simple **TOML** configuration
 
+<details>
+     <summary>Config example</summary>
 ```toml
 useOnlyRunningBrowsers = false
 stripTrackingAttributes = true
@@ -20,8 +22,8 @@ name = "Arc"
 shortcut = "a"
 apps = ["Slack"]
 domains = ["github.com"]
-
 ```
+</details>
 
 ### Why choose Eligere?
 
