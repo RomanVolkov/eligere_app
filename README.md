@@ -6,6 +6,7 @@ a Lightweight, **easy-to-use** and **easy-to-configure** macOS app. Eligere rout
 
 <details>
      <summary>Config example</summary>
+
 ```toml
 useOnlyRunningBrowsers = false
 stripTrackingAttributes = true
@@ -23,6 +24,7 @@ shortcut = "a"
 apps = ["Slack"]
 domains = ["github.com"]
 ```
+
 </details>
 
 ### Why choose Eligere?
