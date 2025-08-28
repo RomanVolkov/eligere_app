@@ -1,6 +1,8 @@
 # Eligere app
-a Lightweight, **easy-to-use** and **easy-to-configure** macOS app. Eligere routes every link to the right browser via simple **TOML** configuration
+
 ![Eligere app](./docs/images/eligere.png "Image of Eligere app")
+
+a Lightweight, **easy-to-use** and **easy-to-configure** macOS app. Eligere routes every link to the right browser via simple **TOML** configuration
 
 ### Why choose Eligere?
 > When you click on a link outside of your web browser it opens in your default web browser. If you use more than one web browser on a regular basis having a single default web browser can be very restrictive and hard to use.  That's where Eligere comes in: instead of having a single default browser Eligere opens links in the right browser for that particular situation based on configuration you created
