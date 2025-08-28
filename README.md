@@ -4,9 +4,29 @@
 
 a Lightweight, **easy-to-use** and **easy-to-configure** macOS app. Eligere routes every link to the right browser via simple **TOML** configuration
 
+```toml
+useOnlyRunningBrowsers = false
+stripTrackingAttributes = true
+expandShortenURLs = true
+pinningSeconds = 30
+logLevel = "warning"
+[[browsers]]
+name = "Safari"
+shortcut = "s"
+apps = ["Messages"]
+domains = ["apple.com"]
+[[browsers]]
+name = "Arc"
+shortcut = "a"
+apps = ["Slack"]
+domains = ["github.com"]
+
+```
+
 ### Why choose Eligere?
 
 When you click on a link outside of your web browser it opens in your default web browser. If you use more than one web browser on a regular basis having a single default web browser can be very restrictive and hard to use.  That's where Eligere comes in: instead of having a single default browser Eligere opens links in the right browser for that particular situation based on configuration you created
+
 
 ### Features
 
