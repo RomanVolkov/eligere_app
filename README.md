@@ -1,6 +1,6 @@
 # Eligere app
 
-<img src="./docs/images/open_link_example.png" width="20%" align="top">
+<img src="./docs/images/open_link_example.png" width="80%" align="center">
 
 a Lightweight, **easy-to-use** and **easy-to-configure** macOS app. Eligere routes every link to the right browser via simple **TOML** configuration
 
