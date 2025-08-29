@@ -8,7 +8,7 @@
 </p>
 
 
-<p align="center">
+<p align="center" width="50%">
 a Lightweight, <b>easy-to-use</b> and <b>easy-to-configure</b> macOS app. Eligere routes every link to the right browser via simple <b>TOML</b> configuration
 </p>
 
