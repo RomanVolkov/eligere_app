@@ -33,6 +33,7 @@ Eligere is a macOS app that routes links to the right browser based on rules you
 
 ```bash
 brew tap romanvolkov/eligere
+brew trust --tap romanvolkov/eligere
 brew install --cask eligere
 ```
 

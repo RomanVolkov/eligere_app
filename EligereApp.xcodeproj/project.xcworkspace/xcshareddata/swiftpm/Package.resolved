@@ -1,33 +1,52 @@
 {
-  "originHash" : "58a2c7a644e333894d11b4a520ef65ae025e99c5bbd39606655ce33e4880f525",
-  "pins" : [
-    {
-      "identity" : "puppy",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/sushichop/Puppy.git",
-      "state" : {
-        "revision" : "b5af02a72a5a1f92a68e6eceee19cac804067ad9",
-        "version" : "0.7.0"
+  "object": {
+    "pins": [
+      {
+        "package": "Puppy",
+        "repositoryURL": "https://github.com/sushichop/Puppy.git",
+        "state": {
+          "branch": null,
+          "revision": "b5af02a72a5a1f92a68e6eceee19cac804067ad9",
+          "version": "0.7.0"
+        }
+      },
+      {
+        "package": "Checkit",
+        "repositoryURL": "https://github.com/karwa/swift-checkit.git",
+        "state": {
+          "branch": null,
+          "revision": "f2b91bd4ec068a0ab8a73051c0077d1e1b614b43",
+          "version": "0.0.2"
+        }
+      },
+      {
+        "package": "SwiftDocCPlugin",
+        "repositoryURL": "https://github.com/apple/swift-docc-plugin",
+        "state": {
+          "branch": null,
+          "revision": "647c708be89f834fa6a6d4945442793a77ddf5b6",
+          "version": "1.5.0"
+        }
+      },
+      {
+        "package": "SymbolKit",
+        "repositoryURL": "https://github.com/swiftlang/swift-docc-symbolkit",
+        "state": {
+          "branch": null,
+          "revision": "b45d1f2ed151d057b54504d653e0da5552844e34",
+          "version": "1.0.0"
+        }
+      },
+      {
+        "package": "swift-log",
+        "repositoryURL": "https://github.com/apple/swift-log.git",
+        "state": {
+          "branch": null,
+          "revision": "e97a6fcb1ab07462881ac165fdbb37f067e205d5",
+          "version": "1.5.4"
+        }
       }
-    },
-    {
-      "identity" : "swift-log",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/apple/swift-log.git",
-      "state" : {
-        "revision" : "e97a6fcb1ab07462881ac165fdbb37f067e205d5",
-        "version" : "1.5.4"
-      }
-    },
-    {
-      "identity" : "tomlkit",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/LebJe/TOMLKit",
-      "state" : {
-        "revision" : "ec6198d37d495efc6acd4dffbd262cdca7ff9b3f",
-        "version" : "0.6.0"
-      }
-    }
-  ],
-  "version" : 3
+    ]
+  },
+  "version": 1
 }
