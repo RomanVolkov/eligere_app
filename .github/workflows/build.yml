@@ -16,7 +16,7 @@ jobs:
 
     steps:
     - name: Checkout code
-      uses: actions/checkout@v2
+      uses: actions/checkout@v5
 
     - name: Build DMG
       run: ./build_dmg.sh
@@ -28,7 +28,7 @@ jobs:
         echo "DMG_NAME=${DMG_NAME}" >> $GITHUB_ENV
 
     - name: Create Release
-      uses: softprops/action-gh-release@v1
+      uses: softprops/action-gh-release@v2
       with:
         files: ${{ env.DMG_NAME }}
       env:
