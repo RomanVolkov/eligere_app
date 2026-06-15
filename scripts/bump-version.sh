@@ -28,18 +28,11 @@ fi
 
 echo "Bumping to $MARKETING_VERSION (build $BUILD_NUMBER)..."
 
-# Replace MARKETING_VERSION in pbxproj (4 occurrences)
-sed -i '' 's/MARKETING_VERSION = "[0-9]*\.[0-9]*\.[0-9]*";/MARKETING_VERSION = "'"$MARKETING_VERSION"'";/g' "$PBXPROJ"
+# Replace MARKETING_VERSION in pbxproj (4 occurrences, no quotes in pbxproj values)
+sed -i '' 's/MARKETING_VERSION = [0-9]*\.[0-9]*\.[0-9]*;/MARKETING_VERSION = '"$MARKETING_VERSION"';/g' "$PBXPROJ"
 
 # Replace CURRENT_PROJECT_VERSION in pbxproj (4 occurrences)
 sed -i '' 's/CURRENT_PROJECT_VERSION = [0-9]*;/CURRENT_PROJECT_VERSION = '"$BUILD_NUMBER"';/g' "$PBXPROJ"
 
-echo "Done. Committing..."
-
-git add "$PBXPROJ"
-git commit -m "release: bump to $MARKETING_VERSION (build $BUILD_NUMBER)"
-
-echo ""
+echo "Done."
 echo "Version bumped to $MARKETING_VERSION (build $BUILD_NUMBER)"
-echo "Run ./build_dmg.sh to build the DMG"
-echo "Then: git tag v${MARKETING_VERSION}_${BUILD_NUMBER} && git push origin v${MARKETING_VERSION}_${BUILD_NUMBER}"
