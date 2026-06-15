@@ -22,6 +22,13 @@
 			remoteGlobalIDString = 5E00A2952DE5ED1A003EA262;
 			remoteInfo = "Eligere Agent";
 		};
+		7c6d4ed050c94a82b35e626f /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5E33F87E2D46931E00805BE8 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5E33F8852D46931E00805BE8;
+			remoteInfo = Eligere;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -41,6 +48,7 @@
 		2461FEBF86EAC6C456413A7B /* TOMLDecoderTests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TOMLDecoderTests.swift; sourceTree = "<group>"; };
 		5E00A2962DE5ED1A003EA262 /* Eligere Agent.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Eligere Agent.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5E33F8862D46931E00805BE8 /* Eligere.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Eligere.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		b1b69809349a491c92965c12 /* EligereTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EligereTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C1838386879FCF48332C6737 /* AppUtils.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AppUtils.swift; sourceTree = "<group>"; };
 		FB9F0A5EAD33AC7F3A79BF0B /* TOMLDecoder.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TOMLDecoder.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -79,6 +87,11 @@
 			path = EligereApp;
 			sourceTree = "<group>";
 		};
+		54e3446202e64fc6a07d9d38 /* EligereTests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = EligereTests;
+			sourceTree = "<group>";
+		};
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,6 +108,13 @@
 			files = (
 				5E1B77322DE9CF27001137B6 /* TOMLKit in Frameworks */,
 				5E67059B2D8F4A4300CFD984 /* Puppy in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2255d00c2d1b41d999a677ab /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -131,6 +151,7 @@
 			children = (
 				5E8F27AE2D46936100C6BC36 /* EligereApp */,
 				5E00A2972DE5ED1A003EA262 /* Eligere Agent */,
+				54e3446202e64fc6a07d9d38 /* EligereTests */,
 				5E33F8872D46931E00805BE8 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -142,6 +163,7 @@
 				5E00A2962DE5ED1A003EA262 /* Eligere Agent.app */,
 				3A0C6784B0A769D4973C0210 /* EligereApp */,
 				66506911F46072C5FC1823F5 /* EligereTests */,
+				b1b69809349a491c92965c12 /* EligereTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -211,6 +233,26 @@
 			productReference = 5E33F8862D46931E00805BE8 /* Eligere.app */;
 			productType = "com.apple.product-type.application";
 		};
+		a5e0a9b052c84fcc836bcbb4 /* EligereTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5144b04373a24443a14f7d00 /* Build configuration list for PBXNativeTarget "EligereTests" */;
+			buildPhases = (
+				1748367987f146218955c16f /* Sources */,
+				2255d00c2d1b41d999a677ab /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				b6cb0418f35b49a6b7fd9260 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				54e3446202e64fc6a07d9d38 /* EligereTests */,
+			);
+			name = EligereTests;
+			productName = EligereTests;
+			productReference = b1b69809349a491c92965c12 /* EligereTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -225,6 +267,9 @@
 						CreatedOnToolsVersion = 16.3;
 					};
 					5E33F8852D46931E00805BE8 = {
+						CreatedOnToolsVersion = 16.2;
+					};
+					a5e0a9b052c84fcc836bcbb4 = {
 						CreatedOnToolsVersion = 16.2;
 					};
 				};
@@ -249,6 +294,7 @@
 			targets = (
 				5E33F8852D46931E00805BE8 /* Eligere */,
 				5E00A2952DE5ED1A003EA262 /* Eligere Agent */,
+				a5e0a9b052c84fcc836bcbb4 /* EligereTests */,
 			);
 		};
 /* End PBXProject section */
@@ -287,6 +333,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		1748367987f146218955c16f /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -294,6 +347,11 @@
 			isa = PBXTargetDependency;
 			target = 5E00A2952DE5ED1A003EA262 /* Eligere Agent */;
 			targetProxy = 5E00A2AF2DE5F9F1003EA262 /* PBXContainerItemProxy */;
+		};
+		b6cb0418f35b49a6b7fd9260 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5E33F8852D46931E00805BE8 /* Eligere */;
+			targetProxy = 7c6d4ed050c94a82b35e626f /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -303,12 +361,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = "Eligere Agent/Eligere_Agent.entitlements";
-				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 33;
-				DEVELOPMENT_TEAM = QAW83JAP7C;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = NO;
@@ -497,14 +553,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = EligereApp/EligereApp.entitlements;
-				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 33;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"EligereApp/Preview Content\"";
-				DEVELOPMENT_TEAM = QAW83JAP7C;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -560,6 +614,36 @@
 			};
 			name = Release;
 		};
+		d78a2250bd9944ada4198c0c /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 33;
+				DEVELOPMENT_TEAM = "";
+				GENERATE_INFOPLIST_FILE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 15.0;
+				MARKETING_VERSION = 2.1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "dev.eligere.eligere-app-tests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		c2db7903a7774ddab5ae38c9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 33;
+				DEVELOPMENT_TEAM = "";
+				GENERATE_INFOPLIST_FILE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 15.0;
+				MARKETING_VERSION = 2.1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "dev.eligere.eligere-app-tests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -586,6 +670,15 @@
 			buildConfigurations = (
 				5E33F8962D46932000805BE8 /* Debug */,
 				5E33F8972D46932000805BE8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5144b04373a24443a14f7d00 /* Build configuration list for PBXNativeTarget "EligereTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				d78a2250bd9944ada4198c0c /* Debug */,
+				c2db7903a7774ddab5ae38c9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
