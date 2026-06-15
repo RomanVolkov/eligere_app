@@ -7,7 +7,6 @@ BACKGROUND_SCHEME_NAME="Eligere Agent"
 CONFIGURATION="Release"
 BUILD_DIR="${PROJECT_DIR}/build"
 OUTPUT_DIR="$HOME/output"
-DEVELOPER_ID="${DEVELOPER_ID}"
 
 rm -rf "${BUILD_DIR}"
 mkdir -p ${BUILD_DIR}
@@ -49,9 +48,9 @@ mkdir -p "${LOGINITEMS_DIR}"
 
 echo "Signing background service and main app components..."
 
-# Sign background service first
-codesign --sign "Developer ID Application: Roman Volkov (${DEVELOPER_ID})" \
-    --force --options runtime --timestamp "${LOGINITEMS_DIR}/${BACKGROUND_SCHEME_NAME}.app"
+# Sign background service first (ad-hoc)
+codesign --sign - \
+    --force --options runtime "${LOGINITEMS_DIR}/${BACKGROUND_SCHEME_NAME}.app"
 
 # Extract marketing version and build number from Info.plist
 MARKETING_VERSION=$(/usr/libexec/PlistBuddy -c "Print :CFBundleShortVersionString" "${APP_PATH}/Contents/Info.plist")
@@ -59,8 +58,8 @@ BUILD_NUMBER=$(/usr/libexec/PlistBuddy -c "Print :CFBundleVersion" "${APP_PATH}/
 echo "Marketing Version: ${MARKETING_VERSION}"
 echo "Build Number: ${BUILD_NUMBER}"
 
-codesign --sign "Developer ID Application: Roman Volkov (${DEVELOPER_ID})" \
-    --force --options runtime --timestamp "${APP_PATH}"
+codesign --sign - \
+    --force --options runtime "${APP_PATH}"
 
 echo "Verifying code signatures..."
 codesign --verify --verbose "${LOGINITEMS_DIR}/${BACKGROUND_SCHEME_NAME}.app"

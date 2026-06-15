@@ -36,7 +36,7 @@ public struct MainAppView: View {
                         .font(.system(size: 20, weight: .light, design: .rounded))
                         .foregroundColor(EligereColors.subtleText)
 
-                    Text("https://eligere.dev/")
+                    Text("https://github.com/RomanVolkov/eligere_app")
                         .font(.system(size: 16, design: .monospaced))
                         .foregroundColor(EligereColors.accentColor.opacity(0.8))
                         .padding(.top, 2)

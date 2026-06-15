@@ -62,7 +62,7 @@
 		<dict/>
 	</array>
 	<key>SUFeedURL</key>
-	<string>https://update.eligere.dev/appcast.xml</string>
+	<string>https://github.com/RomanVolkov/eligere_app/releases.atom</string>
 	<key>NSUserActivityTypes</key>
 	<array>
 		<string>NSUserActivityTypeBrowsingWeb</string>
