@@ -8,8 +8,6 @@ CONFIGURATION="Release"
 BUILD_DIR="${PROJECT_DIR}/build"
 OUTPUT_DIR="$HOME/output"
 DEVELOPER_ID="${DEVELOPER_ID}"
-APPLE_ID="${APPLE_ID}"
-APP_PASSWORD="${APP_PASSWORD}"
 
 rm -rf "${BUILD_DIR}"
 mkdir -p ${BUILD_DIR}
@@ -84,54 +82,4 @@ rm -rf "${BUILD_DIR}/${APP_NAME}.xcarchive"
 rm -rf "${MOUNT_POINT}"
 rm "${OUTPUT_DIR}/${DMG_NAME}"
 
-DMG_PATH="${OUTPUT_DIR}/${COMPRESSED_DMG_NAME}"
-codesign --sign "Developer ID Application: Roman Volkov (${DEVELOPER_ID})" --timestamp --options runtime "${DMG_PATH}"
-echo "Submitting for notarization..."
-
-xcrun notarytool submit "${DMG_PATH}" \
-    --apple-id "${APPLE_ID}" \
-    --password "${APP_PASSWORD}" \
-    --team-id "${DEVELOPER_ID}" \
-    --output-format json >submission_info.json
-
-SUBMISSION_ID=$(cat submission_info.json | grep -o '"id" *: *"[^"]*"' | cut -d'"' -f4)
-echo "Submission ID: ${SUBMISSION_ID}"
-echo "Checking notarization status periodically..."
-
-check_status() {
-    while true; do
-        xcrun notarytool info ${SUBMISSION_ID} \
-            --apple-id "${APPLE_ID}" \
-            --password "${APP_PASSWORD}" \
-            --team-id "${DEVELOPER_ID}" \
-            --output-format json >status_info.json
-
-        STATUS=$(cat status_info.json | grep -o '"status" *: *"[^"]*"' | cut -d'"' -f4)
-
-        if [ "$STATUS" = "Accepted" ]; then
-            echo "Notarization successful!"
-            echo "Stapling notarization ticket to DMG..."
-            xcrun stapler staple "${DMG_PATH}"
-            if [ $? -eq 0 ]; then
-                echo "Stapling completed successfully!"
-                break
-            else
-                echo "Error: Failed to staple notarization ticket"
-                exit 1
-            fi
-        elif [ "$STATUS" = "Invalid" ] || [ "$STATUS" = "Rejected" ]; then
-            echo "Notarization failed. See details below:"
-            cat status_info.json
-            exit 1
-        else
-            echo "Current status: ${STATUS}. Checking again in 30 seconds..."
-            sleep 30
-        fi
-    done
-}
-
-check_status &
-
-echo "Continuing with other tasks while notarization is in progress..."
-
-wait
+echo "Done: DMG created at ${OUTPUT_DIR}/${COMPRESSED_DMG_NAME}"
