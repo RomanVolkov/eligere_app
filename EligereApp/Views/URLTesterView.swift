@@ -7,6 +7,7 @@ public struct URLTesterView: View {
     @State private var inputURL: String = ""
     @State private var result: RoutingResult?
     @State private var isTesting: Bool = false
+    @State private var testTask: Task<Void, Never>?
     
     public init() {}
     
@@ -16,21 +17,12 @@ public struct URLTesterView: View {
                 .font(.system(size: 18, weight: .bold, design: .rounded))
                 .foregroundColor(EligereColors.textColor)
             
-            HStack(spacing: 8) {
-                TextField("https://example.com", text: $inputURL)
-                    .textFieldStyle(.roundedBorder)
-                    .font(.system(size: 14, design: .monospaced))
-                
-                Button(action: {
-                    testURL()
-                }) {
-                    Text("Test")
-                        .fontWeight(.medium)
-                        .foregroundColor(EligereColors.textColor)
+            TextField("https://example.com", text: $inputURL)
+                .textFieldStyle(.roundedBorder)
+                .font(.system(size: 14, design: .monospaced))
+                .onChange(of: inputURL) {
+                    debounceTest()
                 }
-                .buttonStyle(DarkHoverButtonStyle())
-                .disabled(isTesting || inputURL.isEmpty)
-            }
             
             if let result = result {
                 VStack(alignment: .leading, spacing: 8) {
@@ -97,21 +89,35 @@ public struct URLTesterView: View {
         }
     }
     
-    private func testURL() {
-        guard let url = URL(string: inputURL), !inputURL.isEmpty else { return }
+    private func debounceTest() {
+        testTask?.cancel()
+        guard !inputURL.isEmpty else {
+            result = nil
+            return
+        }
+        testTask = Task {
+            try? await Task.sleep(for: .milliseconds(300))
+            guard !Task.isCancelled else { return }
+            await testURL()
+        }
+    }
+    
+    private func testURL() async {
+        guard let url = URL(string: inputURL), !inputURL.isEmpty else {
+            await MainActor.run { result = nil }
+            return
+        }
         
-        isTesting = true
+        await MainActor.run { isTesting = true }
         result = nil
         
-        Task {
-            let router = URLRouter(appState: appState, urlOpener: MockURLOpener())
-            let previousApp = Storage.shared.previousFocusedApp
-            let routingResult = await router.routeURL(url, previousApp: previousApp)
-            
-            await MainActor.run {
-                self.result = routingResult
-                self.isTesting = false
-            }
+        let router = URLRouter(appState: appState, urlOpener: MockURLOpener())
+        let previousApp = Storage.shared.previousFocusedApp
+        let routingResult = await router.routeURL(url, previousApp: previousApp)
+        
+        await MainActor.run {
+            self.result = routingResult
+            self.isTesting = false
         }
     }
 }
