@@ -36,3 +36,6 @@ apps = ["Messages"]
 # More information: https://github.com/RomanVolkov/eligere_app/tree/main/docs/config.md#domains
 domains = ["apple.com"]
 
+# Browser profile (Chrome: profile directory name, Firefox: profile name)
+# profile = "Default"
+

@@ -96,10 +96,10 @@ final class URLRouter {
 
         // Pinned browser
         if let pinningSeconds = appState.config.pinningSeconds,
-            let pinnedBrowser = Storage.shared.pinnedBrowser,
+            let pinnedBrowserId = Storage.shared.pinnedBrowserId ?? Storage.shared.pinnedBrowser,
             let lastPinnedTime = Storage.shared.lastPinnedTime,
             Date().timeIntervalSince(lastPinnedTime) < TimeInterval(pinningSeconds),
-            let browser = availableBrowsers.first(where: { $0.name == pinnedBrowser })
+            let browser = availableBrowsers.first(where: { $0.id == pinnedBrowserId || $0.name == pinnedBrowserId })
         {
             return RoutingResult(
                 browser: browser,

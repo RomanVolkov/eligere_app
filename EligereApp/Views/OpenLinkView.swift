@@ -49,7 +49,7 @@ public struct OpenLinkView: View {
             }) {
                 if isShiftPressed {
                     Storage.shared.lastPinnedTime = Date()
-                    Storage.shared.pinnedBrowser = browser.name
+                    Storage.shared.pinnedBrowser = browser.id
                 }
                 urlOpener.open(url: url, with: browser)
             }
@@ -113,6 +113,13 @@ fileprivate struct BrowserView: View {
                 .font(.system(size: 20, weight: .bold, design: .rounded))
                 .foregroundColor(EligereColors.accentColor)
                 .shadow(color: EligereColors.accentColor.opacity(0.1), radius: 3, x: 0, y: 1)
+            
+            if let profile = browser.profile, !profile.isEmpty {
+                Text(profile)
+                    .font(.system(size: 11, weight: .medium))
+                    .foregroundColor(EligereColors.subtleText)
+                    .lineLimit(1)
+            }
         }
         .padding()
     }
@@ -126,7 +133,7 @@ fileprivate struct BrowsersListView: View {
     var body: some View {
         ZStack {
             HStack {
-                ForEach(appState.browsers.availableBrowsers.filter { $0.hidden ?? false == false }, id: \.self) { browser in
+                ForEach(appState.browsers.availableBrowsers.filter { $0.hidden ?? false == false }, id: \.id) { browser in
                     BrowserView(browser: browser, isShiftPressed: isShiftPressed)
                         .environmentObject(appState)
                 }

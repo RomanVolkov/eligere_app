@@ -1,8 +1,9 @@
 import AppKit
 import Foundation
 
-public struct Browser: Codable, Hashable, Observable {
+public struct Browser: Codable, Observable, Equatable, Hashable, Sendable {
     public let name: String
+    public let profile: String?
     public let shortcut: String?
     public let domains: [String]?
     public let apps: [String]?
@@ -10,6 +11,20 @@ public struct Browser: Codable, Hashable, Observable {
     public let `default`: Bool?
     public let hidden: Bool?
     public let arguments: [String]?
+
+    public var id: String {
+        if let profile = profile, !profile.isEmpty {
+            return "\(name):\(profile)"
+        }
+        return name
+    }
+
+    public var displayName: String {
+        if let profile = profile, !profile.isEmpty {
+            return "\(name) (\(profile))"
+        }
+        return name
+    }
 
     public var appName: String {
         return name + ".app"
@@ -34,5 +49,13 @@ public struct Browser: Codable, Hashable, Observable {
     public func isValid() -> Bool {
         guard let appURL = appURL else { return false }
         return FileManager.default.fileExists(atPath: appURL.path)
+    }
+
+    public static func == (lhs: Browser, rhs: Browser) -> Bool {
+        return lhs.id == rhs.id
+    }
+
+    public func hash(into hasher: inout Hasher) {
+        hasher.combine(id)
     }
 }

@@ -27,6 +27,15 @@ public final class Storage {
         }
     }
 
+    public var pinnedBrowserId: String? {
+        get {
+            return defaults.string(forKey: "pinnedBrowserId")
+        }
+        set {
+            defaults.set(newValue, forKey: "pinnedBrowserId")
+        }
+    }
+
     public var previousFocusedApp: FocusAppInfo? {
         guard let data = sharedDefaults.data(forKey: "previous-app") else {
             return nil

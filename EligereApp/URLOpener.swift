@@ -24,7 +24,22 @@ public final class URLOpener: URLOpenerProtocol {
 
         let configuration = NSWorkspace.OpenConfiguration()
         configuration.activates = true
-        configuration.arguments = browser.arguments ?? []
+        
+        var args = browser.arguments ?? []
+        
+        if let profile = browser.profile, !profile.isEmpty {
+            switch browser.name {
+            case "Google Chrome":
+                args.append("--profile-directory=\(profile)")
+            case "Firefox":
+                args.append("-P")
+                args.append(profile)
+            default:
+                break
+            }
+        }
+        
+        configuration.arguments = args
 
         Log.shared.log("\(configuration.arguments)", level: .debug)
 

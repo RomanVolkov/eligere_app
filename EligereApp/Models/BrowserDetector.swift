@@ -74,4 +74,29 @@ public final class BrowserDetector: Sendable {
         
         return lines.joined(separator: "\n")
     }
+    
+    public static func generateTOMLWithProfiles(suggestions: [BrowserSuggestion], profiles: [(name: String, profile: String)]) -> String {
+        var lines: [String] = []
+        
+        lines.append("useOnlyRunningBrowsers = false")
+        lines.append("stripTrackingAttributes = true")
+        lines.append("expandShortenURLs = true")
+        lines.append("pinningSeconds = 30")
+        lines.append("logLevel = \"warning\"")
+        lines.append("")
+        
+        for (index, suggestion) in suggestions.enumerated() {
+            lines.append("[[browsers]]")
+            lines.append("name = \"\(suggestion.name)\"")
+            lines.append("shortcut = \"\(suggestion.shortcut)\"")
+            
+            if index == 0 {
+                lines.append("default = true")
+            }
+            
+            lines.append("")
+        }
+        
+        return lines.joined(separator: "\n")
+    }
 }
