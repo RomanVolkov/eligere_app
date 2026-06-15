@@ -1,19 +1,56 @@
+# Eligere
 
-<h1 align='center'>
-    Eligere app
-</h1>
+[![Swift](https://img.shields.io/badge/Swift-6.0-F05138?logo=swift)](https://www.swift.org)
+[![macOS](https://img.shields.io/badge/macOS-15+-000000?logo=apple)](https://www.apple.com/macos)
+[![SwiftUI](https://img.shields.io/badge/SwiftUI-blue?logo=swift)](https://developer.apple.com/xcode/swiftui/)
+[![Homebrew](https://img.shields.io/badge/Homebrew-FBB040?logo=homebrew)](https://brew.sh)
+[![GitHub Release](https://img.shields.io/github/v/release/RomanVolkov/eligere_app?logo=github)](https://github.com/RomanVolkov/eligere_app/releases)
+[![MIT License](https://img.shields.io/badge/License-MIT-yellow)](LICENSE)
 
 <p align="center">
-    <img src="./docs/images/open_link_example.png" width="40%"
+    <img src="./docs/images/open_link_example.png" width="40%">
 </p>
 
+Eligere is a macOS app that routes links to the right browser based on rules you define. Instead of a single default browser, you get per-domain and per-app routing.
 
-a Lightweight, <b>easy-to-use</b> and <b>easy-to-configure</b> macOS app. Eligere routes every link to the right browser via simple <b>TOML</b> configuration
+## Features
 
-<p></p>
+- **TOML configuration** — define routing rules in a plain text file, no complex UI
+- **Domain matching** — open specific domains in specific browsers
+- **Source app matching** — route links from Slack, Messages, or any app to a designated browser
+- **Keyboard shortcuts** — assign a single key to each browser for quick selection
+- **Tracking removal** — strip `utm_*`, `gclid`, `fbclid`, and `attribution_id` from URLs automatically
+- **URL expansion** — resolve shortened URLs before routing
+- **Browser profiles** — specify Chrome profiles or Firefox profiles (e.g., `profile = "Work"`)
+- **Browser pinning** — hold Shift + shortcut to temporarily lock a browser for `pinningSeconds`
+- **URL routing tester** — test any URL against your config to see which browser it would open
+- **Auto browser detection** — on first launch, detects installed browsers and generates a starter config
+- **Background agent** — tracks the active application so Eligere knows the source app of a link
 
-<details>
-     <summary>Config example</summary>
+## Installation
+
+### Homebrew
+
+```bash
+brew tap romanvolkov/eligere
+brew install --cask eligere
+```
+
+### Manual
+
+Download the latest DMG from the [releases page](https://github.com/RomanVolkov/eligere_app/releases).
+
+### First launch
+
+After installation, open Eligere. On first launch, it scans `/Applications` for browsers and generates a starter config. Then set Eligere as the default browser:
+
+1. Open Eligere
+2. Click **Make default browser** in the app window
+3. Or go to System Settings > General > Default Web Browser and select Eligere
+
+## Configuration
+
+The config file is at `~/.config/eligere/.eligere.toml`.
 
 ```toml
 useOnlyRunningBrowsers = false
@@ -21,56 +58,92 @@ stripTrackingAttributes = true
 expandShortenURLs = true
 pinningSeconds = 30
 logLevel = "warning"
+
 [[browsers]]
 name = "Safari"
 shortcut = "s"
 apps = ["Messages"]
 domains = ["apple.com"]
+
 [[browsers]]
 name = "Arc"
 shortcut = "a"
 apps = ["Slack"]
 domains = ["github.com"]
+
+[[browsers]]
+name = "Google Chrome"
+profile = "Work"
+shortcut = "c"
+default = true
 ```
 
-</details>
+See [docs/config.md](docs/config.md) for the full reference.
 
-### Why choose Eligere?
+### Using profiles
 
-When you click on a link outside of your web browser it opens in your default web browser. If you use more than one web browser on a regular basis having a single default web browser can be very restrictive and hard to use.  That's where Eligere comes in: instead of having a single default browser Eligere opens links in the right browser for that particular situation based on configuration you created
+Chrome and Firefox support browser profiles:
 
+```toml
+[[browsers]]
+name = "Google Chrome"
+profile = "Default"
+shortcut = "c"
+domains = ["github.com"]
 
-### Features
+[[browsers]]
+name = "Google Chrome"
+profile = "Personal"
+shortcut = "p"
+default = true
+```
 
-- Configure the app using a simple TOML file, no complex UI needed.
-- Automatically strip tracking attributes like utm_source from URLs.
-- Assign specific domains to open in designated browsers.
-- Use shortcuts to quickly open links in your preferred browser.
-- Map specific source apps to open links in designated browsers.
-- Find more in [docs](./docs/config.md)
+## Testing your config
 
-### Download & Install
+Open Eligere and use the **URL Routing Tester** in the app window. Paste a URL to see which browser would be used and what rule matched, without opening anything.
 
-Single line command will do the trick
+## How it works
+
+1. You click a link outside of any browser
+2. macOS opens Eligere (registered as the default browser)
+3. Eligere checks the config against the URL and the source app
+4. The link opens in the matching browser
+5. Eligere quits — it runs only when needed
+
+## Repository structure
+
+```
+EligereApp/
+├── EligereApp.xcodeproj/          # Xcode project
+├── EligereApp/                    # Main app source
+│   ├── Configs/                   # TOML config parsing
+│   ├── Models/                    # App state, browser model
+│   ├── Views/                     # SwiftUI views
+│   ├── Utils/                     # URL cleaning, logging
+│   ├── URLOpener.swift            # Opens URLs in selected browser
+│   └── URLRouter.swift            # Routing logic
+├── Eligere Agent/                 # Background process for app tracking
+├── EligereTests/                  # Swift Testing suite (swift test)
+├── docs/                          # Documentation and images
+└── build_dmg.sh                   # Build script
+```
+
+## Running tests
 
 ```bash
-brew install --cask romanvolkov/eligere/eligere
+cd EligereTests && swift test
 ```
 
+## Troubleshooting
 
-### First launch 
+Enable verbose logging in the config:
 
-Once you installed `Eligere.app` via `brew install` you will need to do some steps to make `Eligere` as the default web browser. You can find steps [here.](./docs/first_launch.md)
+```toml
+logLevel = "debug"
+```
 
-### Configuration
+Then check `~/.eligere.log` or use **Copy log path** in the app. Report issues on [GitHub](https://github.com/RomanVolkov/eligere_app/issues).
 
-As it mentioned before - `Eligere's` main difference from other apps like this is using a `TOML` configuration instead. `Eligere` comes with predefined configuration as starter. But then you should configure it how you like it. [There is a detailed guide](./docs/config.md): where to find the config, how to edit and some examples to get inspiration from.
+## License
 
-### Troubleshooting
-
-If you have some problems - you can enable verbose login and open an Issue here. Here is how you can do it:  [logs](./docs/logs.md)
-
-### Sponsorship
-
-`Eligere` is developed and maintained in my free time.
-If you find it useful, [consider sponsoring](https://github.com/sponsors/romanvolkov#sponsors).
+MIT. See [LICENSE](LICENSE).
