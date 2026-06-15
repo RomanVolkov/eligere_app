@@ -1,41 +1,58 @@
-# Filter the list of presented browser by the fact if a browser is already opened
+# Filter browsers by whether they are currently running.
+# When true, only open browsers appear in the picker.
 # More information: https://github.com/RomanVolkov/eligere_app/tree/main/docs/config.md#useonlyrunningbrowsers
 useOnlyRunningBrowsers = false
 
-# Removing some tracking attributes from URLs
+# Remove tracking parameters (utm_*, gclid, fbclid, attribution_id) from URLs.
 # More information: https://github.com/RomanVolkov/eligere_app/tree/main/docs/config.md#striptrackingattributes
 stripTrackingAttributes = true
 
-# Resolves the final URL that is hidden under shorten URL
-# More information and how to combine with other features: https://github.com/RomanVolkov/eligere_app/tree/main/docs/config.md#expandShortenURLs
+# Resolve shortened URLs before routing to see the real destination.
+# More information: https://github.com/RomanVolkov/eligere_app/tree/main/docs/config.md#expandShortenURLs
 expandShortenURLs = true
 
-# Number of seconds to make a browser the default one temporary
-# Mope information: https://github.com/RomanVolkov/eligere_app/tree/main/docs/config.md#pinningseconds
+# Time in seconds a pinned browser stays as the temporary default.
+# Pin a browser by holding Shift while pressing its shortcut key.
+# More information: https://github.com/RomanVolkov/eligere_app/tree/main/docs/config.md#pinningseconds
 pinningSeconds = 30
 
-# Level of verbosity for .eligere.log for troubleshooting
+# Log verbosity: trace, debug, info, notice, warning, error, critical.
 # More information: https://github.com/RomanVolkov/eligere_app/tree/main/docs/config.md#loglevel
 logLevel = "warning"
 
 [[browsers]]
-# Name of a browser from "/Applications" folder. Required property.
-# If set incorrectly - browser configuration will be ignored.
+# Name of a browser from /Applications/. Required. Must match the .app name.
 # More information: https://github.com/RomanVolkov/eligere_app/tree/main/docs/config.md#name
 name = "Safari"
 
-# Keyboard shortcut to open this browser.
+# Single-character keyboard shortcut to select this browser in the picker.
 # More information: https://github.com/RomanVolkov/eligere_app/tree/main/docs/config.md#shortcut
 shortcut = "s"
 
-# Eligere can map all links for "apps" applications to this browser configuration.
-# Mor information: https://github.com/RomanVolkov/eligere_app/tree/main/docs/config.md#apps---optional
+# Open links from these source apps in this browser automatically.
+# More information: https://github.com/RomanVolkov/eligere_app/tree/main/docs/config.md#apps
 apps = ["Messages"]
 
-# Eligere can map specific links to this browser configuration.
+# Route URLs containing these strings to this browser.
+# Longer matches take priority over shorter ones.
 # More information: https://github.com/RomanVolkov/eligere_app/tree/main/docs/config.md#domains
 domains = ["apple.com"]
 
-# Browser profile (Chrome: profile directory name, Firefox: profile name)
-# profile = "Default"
+# Use this browser as the fallback when no other rule matches.
+# Only one browser should have default = true.
+# More information: https://github.com/RomanVolkov/eligere_app/tree/main/docs/config.md#default
+# default = true
 
+# Hide this browser from the picker UI. Rules still apply silently.
+# More information: https://github.com/RomanVolkov/eligere_app/tree/main/docs/config.md#hidden
+# hidden = false
+
+# Extra arguments passed to the browser on launch.
+# More information: https://github.com/RomanVolkov/eligere_app/tree/main/docs/config.md#arguments
+# arguments = []
+
+# Open a specific browser profile instead of the default one.
+# Chrome: profile directory name (e.g. "Default", "Profile 1")
+# Firefox: profile name from about:profiles
+# More information: https://github.com/RomanVolkov/eligere_app/tree/main/docs/config.md#profile
+# profile = "Default"
