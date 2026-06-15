@@ -615,6 +615,7 @@
 		d78a2250bd9944ada4198c0c /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 33;
 				DEVELOPMENT_TEAM = "";
@@ -624,12 +625,14 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "dev.eligere.eligere-app-tests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Eligere.app";
 			};
 			name = Debug;
 		};
 		c2db7903a7774ddab5ae38c9 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 33;
 				DEVELOPMENT_TEAM = "";
@@ -639,6 +642,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "dev.eligere.eligere-app-tests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Eligere.app";
 			};
 			name = Release;
 		};
