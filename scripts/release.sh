@@ -32,7 +32,7 @@ if ! ./scripts/build_dmg.sh; then
     exit 1
 fi
 
-DMG_PATH="$HOME/output/Eligere_${MARKETING_VERSION}_${BUILD_NUMBER}_Installer_compressed.dmg"
+DMG_PATH="output/Eligere_${MARKETING_VERSION}_${BUILD_NUMBER}_Installer_compressed.dmg"
 if [ ! -f "$DMG_PATH" ]; then
     echo "Error: DMG not found at $DMG_PATH"
     exit 1

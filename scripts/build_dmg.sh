@@ -75,6 +75,7 @@ hdiutil attach -verbose "${OUTPUT_DIR}/${DMG_NAME}" -mountpoint "${MOUNT_POINT}"
 cp -R "${BUILD_DIR}/${APP_NAME}.app" "${MOUNT_POINT}/"
 ln -s /Applications "${MOUNT_POINT}/Applications"
 hdiutil detach "${MOUNT_POINT}"
+rm -f "${OUTPUT_DIR}/${COMPRESSED_DMG_NAME}"
 hdiutil convert "${OUTPUT_DIR}/${DMG_NAME}" -format UDZO -o "${OUTPUT_DIR}/${COMPRESSED_DMG_NAME}"
 
 rm -rf "${BUILD_DIR}/${APP_NAME}.xcarchive"
