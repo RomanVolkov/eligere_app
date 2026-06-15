@@ -6,7 +6,7 @@ SCHEME_NAME="Eligere"
 BACKGROUND_SCHEME_NAME="Eligere Agent"
 CONFIGURATION="Release"
 BUILD_DIR="${PROJECT_DIR}/build"
-OUTPUT_DIR="$HOME/output"
+OUTPUT_DIR="${PROJECT_DIR}/output"
 
 rm -rf "${BUILD_DIR}"
 mkdir -p ${BUILD_DIR}
