@@ -6,22 +6,36 @@
       parallelizeBuildables = "YES"
       buildImplicitDependencies = "YES"
       buildArchitectures = "Automatic">
-      <BuildActionEntries>
-         <BuildActionEntry
-            buildForTesting = "YES"
-            buildForRunning = "YES"
-            buildForProfiling = "YES"
-            buildForArchiving = "YES"
-            buildForAnalyzing = "YES">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "5E33F8852D46931E00805BE8"
-               BuildableName = "Eligere.app"
-               BlueprintName = "Eligere"
-               ReferencedContainer = "container:EligereApp.xcodeproj">
-            </BuildableReference>
-         </BuildActionEntry>
-      </BuildActionEntries>
+       <BuildActionEntries>
+          <BuildActionEntry
+             buildForTesting = "YES"
+             buildForRunning = "YES"
+             buildForProfiling = "YES"
+             buildForArchiving = "YES"
+             buildForAnalyzing = "YES">
+             <BuildableReference
+                BuildableIdentifier = "primary"
+                BlueprintIdentifier = "5E33F8852D46931E00805BE8"
+                BuildableName = "Eligere.app"
+                BlueprintName = "Eligere"
+                ReferencedContainer = "container:EligereApp.xcodeproj">
+             </BuildableReference>
+          </BuildActionEntry>
+          <BuildActionEntry
+             buildForTesting = "YES"
+             buildForRunning = "NO"
+             buildForProfiling = "NO"
+             buildForArchiving = "NO"
+             buildForAnalyzing = "NO">
+             <BuildableReference
+                BuildableIdentifier = "primary"
+                BlueprintIdentifier = "a5e0a9b052c84fcc836bcbb4"
+                BuildableName = "EligereTests.xctest"
+                BlueprintName = "EligereTests"
+                ReferencedContainer = "container:EligereApp.xcodeproj">
+             </BuildableReference>
+          </BuildActionEntry>
+       </BuildActionEntries>
    </BuildAction>
    <TestAction
       buildConfiguration = "Debug"
