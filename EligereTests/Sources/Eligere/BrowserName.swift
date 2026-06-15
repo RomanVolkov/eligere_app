@@ -1,0 +1,1 @@
+../../../EligereApp/Configs/BrowserName.swift

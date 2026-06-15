@@ -1,0 +1,1 @@
+../../../EligereApp/Models/BrowserDetector.swift
