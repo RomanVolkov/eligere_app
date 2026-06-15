@@ -120,6 +120,10 @@ public struct MainAppView: View {
             )
             .padding()
 
+            // URL Tester
+            URLTesterView()
+                .padding(.horizontal)
+
             Spacer()
 
             // Default Browser Banner

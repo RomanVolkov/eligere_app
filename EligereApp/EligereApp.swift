@@ -12,16 +12,25 @@ struct EligereApp: App {
         var loadedConfig: Config! = ConfigLoader.load()
 
         if loadedConfig == nil && !ConfigLoader.configExists() {
-            Log.shared.log("No config -> generate default one", level: .critical)
+            Log.shared.log("No config -> detect browsers and generate one", level: .critical)
+            
+            let detected = BrowserDetector.detectInstalledBrowsers()
+            let tomlContent = BrowserDetector.generateTOML(suggestions: detected)
+            
             do {
-                try ConfigLoader.copyDefaultConfig()
-            }
-            catch {
-                Log.shared.log("Exiting: Failed to copy default config: \(error)", level: .critical)
+                try ConfigLoader.writeConfig(tomlContent)
+            } catch {
+                Log.shared.log("Exiting: Failed to write generated config: \(error)", level: .critical)
                 fatalError()
             }
+            
             loadedConfig = ConfigLoader.load()
-        } else if ConfigLoader.load() == nil {
+            
+            if loadedConfig == nil {
+                Log.shared.log("Exiting: Generated config cannot be loaded", level: .critical)
+                fatalError()
+            }
+        } else if loadedConfig == nil {
             Log.shared.log("Exiting: Config cannot be loaded", level: .critical)
             fatalError()
         }

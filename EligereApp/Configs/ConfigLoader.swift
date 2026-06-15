@@ -30,4 +30,17 @@ public final class ConfigLoader {
         try fileManager.copyItem(at: ConfigPath.defaultConfigPath, to: destinationURL)
     }
 
+    public static func writeConfig(_ content: String) throws {
+        let fileManager = FileManager.default
+        let destinationURL = ConfigPath.defaultPath
+
+        let directoryURL = destinationURL.deletingLastPathComponent()
+        try fileManager.createDirectory(
+            at: directoryURL,
+            withIntermediateDirectories: true,
+            attributes: nil)
+
+        try content.write(to: destinationURL, atomically: true, encoding: .utf8)
+    }
+
 }
