@@ -8,18 +8,7 @@ public struct BrowserSuggestion: Sendable {
 
 public final class BrowserDetector: Sendable {
     
-    private static let knownBrowsers: [(name: String, shortcut: String)] = [
-        ("Safari", "s"),
-        ("Google Chrome", "c"),
-        ("Arc", "a"),
-        ("Firefox", "f"),
-        ("Brave Browser", "b"),
-        ("Microsoft Edge", "e"),
-        ("Opera", "o"),
-        ("Vivaldi", "v"),
-        ("Orion", "r"),
-        ("DuckDuckGo", "d"),
-    ]
+    private static let knownBrowsers: [(name: String, shortcut: String)] = BrowserName.allCases.map { ($0.displayName, BrowserName.defaultShortcuts[$0] ?? "") }
     
     public static func detectInstalledBrowsers() -> [BrowserSuggestion] {
         let appsDir = try? FileManager.default.url(

@@ -28,14 +28,16 @@ public final class URLOpener: URLOpenerProtocol {
         var args = browser.arguments ?? []
         
         if let profile = browser.profile, !profile.isEmpty {
-            switch browser.name {
-            case "Google Chrome":
-                args.append("--profile-directory=\(profile)")
-            case "Firefox":
-                args.append("-P")
-                args.append(profile)
-            default:
-                break
+            if let browserName = BrowserName(rawValue: browser.name) {
+                switch browserName {
+                case .googleChrome:
+                    args.append("--profile-directory=\(profile)")
+                case .firefox:
+                    args.append("-P")
+                    args.append(profile)
+                default:
+                    break
+                }
             }
         }
         
