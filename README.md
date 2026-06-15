@@ -125,8 +125,11 @@ EligereApp/
 │   └── URLRouter.swift            # Routing logic
 ├── Eligere Agent/                 # Background process for app tracking
 ├── EligereTests/                  # Swift Testing suite (swift test)
-├── docs/                          # Documentation and images
-└── build_dmg.sh                   # Build script
+├── scripts/
+│   ├── build_dmg.sh               # DMG build script
+│   ├── bump-version.sh            # Version bumper
+│   └── release.sh                 # Full release flow
+└── docs/                          # Documentation and images
 ```
 
 ## Running tests

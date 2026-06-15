@@ -5,6 +5,8 @@
 
 set -euo pipefail
 
+cd "$(dirname "$0")/.."
+
 if [ $# -ne 2 ]; then
     echo "Usage: $0 <marketing-version> <build-number>"
     echo "Example: $0 2.2.0 34"

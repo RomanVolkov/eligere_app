@@ -19,7 +19,7 @@ jobs:
       uses: actions/checkout@v5
 
     - name: Build DMG
-      run: ./build_dmg.sh
+      run: ./scripts/build_dmg.sh
 
     - name: Get DMG Version
       id: get_version

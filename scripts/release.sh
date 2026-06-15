@@ -27,7 +27,7 @@ echo ""
 
 # Build DMG
 echo "Building DMG..."
-if ! ./build_dmg.sh; then
+if ! ./scripts/build_dmg.sh; then
     echo "Error: DMG build failed"
     exit 1
 fi
