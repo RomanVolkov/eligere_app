@@ -12,6 +12,10 @@
     <img src="./docs/images/open_link_example.png" width="40%">
 </p>
 
+Eligere is a macOS app that routes links to the right browser based on rules you define. Instead of a single default browser, you get per-domain and per-app routing.
+
+## Showcase
+
 <p align="center">
     <a href="https://youtu.be/mFFS-WRaYBE">
         <img src="https://img.youtube.com/vi/mFFS-WRaYBE/maxresdefault.jpg" width="70%" alt="Eligere demo">
@@ -19,8 +23,6 @@
     <br>
     <em>▶️ Watch the demo on YouTube</em>
 </p>
-
-Eligere is a macOS app that routes links to the right browser based on rules you define. Instead of a single default browser, you get per-domain and per-app routing.
 
 ## Features
 
