@@ -9,9 +9,15 @@
 [![YouTube](https://img.shields.io/badge/YouTube-FF0000?logo=youtube&logoColor=white)](https://youtu.be/mFFS-WRaYBE)
 
 <p align="center">
+    <img src="./docs/images/open_link_example.png" width="40%">
+</p>
+
+<p align="center">
     <a href="https://youtu.be/mFFS-WRaYBE">
-        <img src="./docs/images/open_link_example.png" width="40%">
+        <img src="https://img.youtube.com/vi/mFFS-WRaYBE/maxresdefault.jpg" width="70%" alt="Eligere demo">
     </a>
+    <br>
+    <em>▶️ Watch the demo on YouTube</em>
 </p>
 
 Eligere is a macOS app that routes links to the right browser based on rules you define. Instead of a single default browser, you get per-domain and per-app routing.
