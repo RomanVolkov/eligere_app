@@ -6,9 +6,12 @@
 [![Homebrew](https://img.shields.io/badge/Homebrew-FBB040?logo=homebrew)](https://brew.sh)
 [![GitHub Release](https://img.shields.io/github/v/release/RomanVolkov/eligere_app?logo=github)](https://github.com/RomanVolkov/eligere_app/releases)
 [![MIT License](https://img.shields.io/badge/License-MIT-yellow)](LICENSE)
+[![YouTube](https://img.shields.io/badge/YouTube-FF0000?logo=youtube&logoColor=white)](https://youtu.be/mFFS-WRaYBE)
 
 <p align="center">
-    <img src="./docs/images/open_link_example.png" width="40%">
+    <a href="https://youtu.be/mFFS-WRaYBE">
+        <img src="./docs/images/open_link_example.png" width="40%">
+    </a>
 </p>
 
 Eligere is a macOS app that routes links to the right browser based on rules you define. Instead of a single default browser, you get per-domain and per-app routing.
